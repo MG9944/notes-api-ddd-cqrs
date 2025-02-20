@@ -8,41 +8,41 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
 
-class EditNoteForm extends AbstractType
+class CreateNotificationForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class, [
+            ->add('type', TextType::class, [
                 'constraints' => [
                     new NotNull([
-                        'message' => 'The title field must not be blank',
+                        'message' => 'The type field must not be blank',
                     ]),
                     new Length([
                         'max' => 255,
-                        'maxMessage' => 'The given title is too long. It should have less than {{ limit }} characters.',
+                        'maxMessage' => 'The given type is too long. It should have less than {{ limit }} characters.',
                     ]),
                 ],
             ])
-            ->add('content', TextType::class, [
+            ->add('message', TextType::class, [
                 'constraints' => [
                     new NotNull([
-                        'message' => 'The content field must not be blank',
+                        'message' => 'The message field must not be blank',
                     ]),
                     new Length([
                         'max' => 255,
-                        'maxMessage' => 'The given content is too long. It should have less than {{ limit }} characters.',
+                        'maxMessage' => 'The given message is too long. It should have less than {{ limit }} characters.',
                     ]),
                 ],
             ])
-            ->add('version', TextType::class, [
+            ->add('status', TextType::class, [
                 'constraints' => [
                     new NotNull([
-                        'message' => 'The version field must not be blank',
+                        'message' => 'The status field must not be blank',
                     ]),
                     new Length([
                         'max' => 64,
-                        'maxMessage' => 'The given version is too long. It should have less than {{ limit }} characters.',
+                        'maxMessage' => 'The given status is too long. It should have less than {{ limit }} characters.',
                     ]),
                 ],
             ]);

@@ -6,12 +6,12 @@ use App\Application\Note\Commands\UpdateNoteCommand;
 use App\Application\Note\NoteService;
 use App\Domain\Note\NoteRepositoryInterface;
 
-class UpdateNoteCommandHandler
+readonly class UpdateNoteCommandHandler
 {
 
     public function __construct(
-        private readonly NoteRepositoryInterface $noteRepository,
-        private readonly NoteService $noteService
+        private NoteRepositoryInterface $noteRepository,
+        private NoteService             $noteService
     ) {
     }
 
